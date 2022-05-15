@@ -1,7 +1,7 @@
-package com.kingcode.cashingwithconcurrentmapcache.cashe;
+package com.kingcode.cashingwithconcurrentmapcache.app.cashe;
 
 import com.google.common.hash.Hashing;
-
+import com.kingcode.cashingwithconcurrentmapcache.app.Translator;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
 
 import java.nio.charset.StandardCharsets;
@@ -24,6 +24,7 @@ public class CachingTranslations implements Translator {
         }
         String translation = translator.translate(text);
         storeTranslationInCache(hashKey, translation);
+        System.out.println("I am cashing process in CachingTranslations");
         return translation;
     }
 
@@ -38,6 +39,6 @@ public class CachingTranslations implements Translator {
     }
 
     private String retrieveTranslationFromCache(String hashKey) {
-        return this.cache.get(hashKey,String.class);
+        return this.cache.get(hashKey, String.class);
     }
 }
