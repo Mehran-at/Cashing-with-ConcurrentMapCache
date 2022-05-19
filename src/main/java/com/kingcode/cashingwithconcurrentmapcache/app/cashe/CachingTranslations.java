@@ -20,6 +20,7 @@ public class CachingTranslations implements Translator {
         String hashKey = makeHashKeyOf(text);
         String retrieveFromCache = retrieveTranslationFromCache(hashKey);
         if (retrieveFromCache != null) {
+            System.out.println("I found this in the cache" + retrieveFromCache);
             return retrieveFromCache;
         }
         String translation = translator.translate(text);

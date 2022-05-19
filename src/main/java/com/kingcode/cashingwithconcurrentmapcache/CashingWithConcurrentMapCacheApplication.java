@@ -21,6 +21,7 @@ public class CashingWithConcurrentMapCacheApplication {
 
     public static String get() {
         Translator translator = azureTranslationConfig.translatorConfig();
+        translator.translate("Hallo leute");
         return translator.translate("Hallo leute");
     }
 }
